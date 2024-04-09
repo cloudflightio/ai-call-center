@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/application/Dockerfile
+      network: host
+      target: app
+    image: vto-app
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M

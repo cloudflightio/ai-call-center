@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "vto-pipeline"
+version = "0.1.0"
+description = "Pipeline text 2 order"
+authors = ["Sherin Grimbergen <sherin.grimbergen@cloudflight.io>"]
+readme = "README.md"
+packages = [{ include = "vto_pipeline" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10, <3.13"
+openai = "^1.8.0"
+dependency-injector = "^4.41.0"
+pydantic-settings = "^2.1.0"
+black = "^23.11.0"
+isort = "^5.12.0"
+pylint = "^3.0.2"
+flake8 = "^6.1.0"
+pytest = "^7.4.3"
+loguru = "^0.7.2"
+flair = "^0.13.1"
+sentence-transformers = "^2.6.1"
+nltk = "^3.8.1"
+pandas = "^2.2.1"
+scipy = "1.11.4"                 # Required for flair
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 110
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+# A regex preceded with ^/ will apply only to files and directories
+# in the root of the project.
+^setup.py
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 110
+
+[tool.pylint.messages_control]
+max-line-length = 110
+
+[tool.poetry.scripts]
+pipeline = "vto_pipeline.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]

@@ -1,0 +1,11 @@
+*.pt
+
+.vscode
+__pycache__
+
+*.txt
+
+/data/flair/*
+/data/order_examples/*.json
+/data/order_examples_test
+/data/order_examples_train

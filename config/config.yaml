@@ -1,0 +1,11 @@
+pipeline:
+  entity_recognition_model: "gpt"
+  products_file: './data/products.json'
+flair:
+  final_model_file: "./data/flair/final-model.pt"
+azure:
+  openai_endpoint: "https://v2o-gpt.openai.azure.com/"
+  openai_api_version: "2023-05-15"
+  openai_deployment_name: "v2o-assistant"
+logging:
+  enabled: true
